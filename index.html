@@ -20,3 +20,28 @@
     <strong>Next time I want to improve:</strong> Next week, I want to improve my homepage layout, add more detailed information about my skills, and start creating a Projects section to present my work more clearly.
   </p>
 </section>
+
+
+<!-- Contact Form — paste into your HTML where you want the form -->
+<section id="contact">
+  <h2>Get In Touch</h2>
+  <form id="contact-form">
+    <div>
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" required
+             placeholder="Jane Smith" />
+    </div>
+    <div>
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="email" required
+             placeholder="jane@example.com" />
+    </div>
+    <div>
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required
+                placeholder="Say hello..." rows="5"></textarea>
+    </div>
+    <button type="submit" id="submit-btn">Send Message</button>
+    <p id="form-status"></p>
+  </form>
+</section>
