@@ -1,15 +1,13 @@
 /* ===== 1. SITE THEME (CSS VARIABLES) ===== */
 
 :root {
-
-  --bg: #f5f5f7;
-  --text: #111827;
-  --accent: #2563eb;
+  --bg:          #f5f5f7;
+  --text:        #111827;
+  --accent:      #2563eb;
   --accent-soft: #dbeafe;
 
   --font-base: system-ui, -apple-system, BlinkMacSystemFont,
                "Segoe UI", sans-serif;
-
 }
 
 * {
@@ -31,20 +29,15 @@ body {
 /* ===== 2. PAGE LAYOUT ===== */
 
 .page-wrap {
-
   max-width: 960px;
-
   margin: 0 auto;
-
   padding: 2rem 1.5rem 4rem;
-
 }
 
 
-/* ===== 3. HEADER ===== */
+/* ===== 3. HEADER + NAVIGATION ===== */
 
 header {
-
   padding: 1.5rem 0 1rem;
 
   display: flex;
@@ -54,25 +47,15 @@ header {
   align-items: center;
 
   border-bottom: 1px solid #e5e7eb;
-
 }
-
 
 .site-title {
-
   font-size: 1.6rem;
-
   font-weight: 700;
-
   letter-spacing: 0.03em;
-
 }
 
-
-/* ===== NAVIGATION ===== */
-
 nav ul {
-
   list-style: none;
 
   display: flex;
@@ -82,12 +65,9 @@ nav ul {
   margin: 0;
 
   padding: 0;
-
 }
 
-
 nav a {
-
   text-decoration: none;
 
   color: var(--text);
@@ -99,56 +79,40 @@ nav a {
   border-radius: 999px;
 
   transition: background 0.2s, color 0.2s;
-
 }
 
-
-nav a:hover {
-
+nav a:hover,
+nav a:focus {
   background: var(--accent-soft);
-
   color: var(--accent);
-
 }
 
 
-/* ===== 4. SECTIONS ===== */
+/* ===== 4. TYPOGRAPHY + SECTIONS ===== */
 
 section {
-
   padding: 2.5rem 0;
 
   border-bottom: 1px solid #e5e7eb;
-
 }
 
 section:last-of-type {
-
   border-bottom: none;
-
 }
 
 section h2 {
-
   font-size: 1.4rem;
 
   margin-bottom: 0.75rem;
-
 }
 
 section p {
-
   max-width: 60ch;
 
   margin-bottom: 0.75rem;
-
 }
 
-
-/* ===== HIGHLIGHT BOX ===== */
-
 .highlight {
-
   background: var(--accent-soft);
 
   border-left: 4px solid var(--accent);
@@ -158,14 +122,12 @@ section p {
   border-radius: 0.5rem;
 
   margin-top: 1rem;
-
 }
 
 
 /* ===== 5. PROJECT GRID ===== */
 
 .projects-grid {
-
   display: grid;
 
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -173,12 +135,9 @@ section p {
   gap: 1.5rem;
 
   margin-top: 1.5rem;
-
 }
 
-
 .project-card {
-
   background: #ffffff;
 
   border-radius: 0.75rem;
@@ -194,30 +153,21 @@ section p {
   flex-direction: column;
 
   gap: 0.5rem;
-
 }
 
-
 .project-card h3 {
-
   margin: 0;
 
   font-size: 1.1rem;
-
 }
 
-
 .project-card p {
-
   margin: 0;
 
   font-size: 0.95rem;
-
 }
 
-
 .project-meta {
-
   font-size: 0.8rem;
 
   text-transform: uppercase;
@@ -225,19 +175,13 @@ section p {
   letter-spacing: 0.08em;
 
   color: #6b7280;
-
 }
-
 
 .project-links {
-
   margin-top: 0.5rem;
-
 }
 
-
 .project-links a {
-
   font-size: 0.9rem;
 
   color: var(--accent);
@@ -245,21 +189,29 @@ section p {
   text-decoration: none;
 
   margin-right: 0.75rem;
-
 }
-
 
 .project-links a:hover {
-
   text-decoration: underline;
-
 }
 
 
-/* ===== 6. BUTTONS ===== */
+/* ===== CONTACT BOX ===== */
+
+.contact-box {
+  background: #ffffff;
+
+  border-radius: 0.75rem;
+
+  padding: 1.25rem;
+
+  border: 1px solid #e5e7eb;
+}
+
+
+/* ===== BUTTON ===== */
 
 .button {
-
   display: inline-flex;
 
   align-items: center;
@@ -279,40 +231,19 @@ section p {
   text-decoration: none;
 
   border: none;
-
 }
-
 
 .button:hover {
-
   background: #1d4ed8;
-
-}
-
-
-/* ===== CONTACT BOX ===== */
-
-.contact-box {
-
-  background: #ffffff;
-
-  border-radius: 0.75rem;
-
-  padding: 1.25rem;
-
-  border: 1px solid #e5e7eb;
-
 }
 
 
 /* ===== FOOTER ===== */
 
 footer {
-
   margin-top: 2rem;
 
   color: #6b7280;
 
   font-size: 0.95rem;
-
 }
