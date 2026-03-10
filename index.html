@@ -1,120 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>My Portfolio</title>
+  <title>Qian Cao Portfolio</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<section id="production-diary">
-  <h2>Production diary – Week 15</h2>
-  <p><strong>Date:</strong> 13 February 2026</p>
+<body>
+  <div class="page-wrap">
 
-  <p>
-    This week, I built and published my first version of my GitHub Pages website. I created the repository, edited the index.html file, and organised the basic structure of my homepage. I also added a Production diary section to reflect on my progress.
-  <p>
-    <strong>I am most happy with:</strong> The achievement I am most proud of is successfully deploying my website and seeing it live online. Understanding how GitHub Pages builds and publishes changes from the main branch made the process clearer.
-  </p>
+    <header>
+      <div class="site-title">Qian Cao</div>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#diary">Diary</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
 
-  <p>
-    <strong>I found it difficult to:</strong> I found it difficult to understand how the repository name affects the website URL and how deployment works in the background. I also found it difficult to structure the HTML content clearly at the beginning.
-  </p>
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        Hello, I am Qian Cao. I am currently studying Web Development and building
+        my personal portfolio website as part of my course.
+      </p>
+      <p>
+        This website shows my learning progress, weekly production diary, and the
+        projects I create during my studies.
+      </p>
+      <p class="highlight">
+        I am currently developing my skills in HTML, CSS, GitHub Pages, and portfolio design.
+      </p>
+    </section>
 
-  <p>
-    <strong>I learn from this work:</strong> I learned more about the structure of an HTML document, including sections, headings, and paragraphs. I also learned how version control works in practice and why making small commits is useful.
-  </p>
-  
-  <p>
-    <strong>Next time I want to improve:</strong> Next week, I want to improve my homepage layout, add more detailed information about my skills, and start creating a Projects section to present my work more clearly.
-  </p>
-</section>
+    <section id="skills">
+      <h2>Skills</h2>
+      <p>
+        I am currently learning and practising HTML, CSS, GitHub Pages, website structure,
+        and basic front-end design.
+      </p>
+      <p>
+        I am also improving my ability to organise content clearly and present my work in a
+        professional online format.
+      </p>
+    </section>
 
+    <section id="diary">
+      <h2>Production Diary – Week 15</h2>
+      <p><strong>Date:</strong> 13 February 2026</p>
+      <p>
+        This week, I built and published the first version of my GitHub Pages website.
+        I created the repository, edited the index.html file, and organised the basic
+        structure of my homepage.
+      </p>
+      <p>
+        I am most pleased that I successfully deployed my website and was able to see it live online.
+      </p>
+      <p>
+        In the future, I would like to improve the layout of my homepage, add more details
+        about my skills, and create a clearer and more professional Projects section.
+      </p>
+    </section>
 
-<!-- Contact Form — paste into your HTML where you want the form -->
-<section id="contact">
-  <h2>Get In Touch</h2>
-  <form id="contact-form">
-    <div>
-      <label for="name">Your Name</label>
-      <input type="text" id="name" name="name" required
-             placeholder="Jane Smith" />
-    </div>
-    <div>
-      <label for="email">Your Email</label>
-      <input type="email" id="email" name="email" required
-             placeholder="jane@example.com" />
-    </div>
-    <div>
-      <label for="message">Message</label>
-      <textarea id="message" name="message" required
-                placeholder="Say hello..." rows="5"></textarea>
-    </div>
-    <button type="submit" id="submit-btn">Send Message</button>
-    <p id="form-status"></p>
-  </form>
-</section>
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="projects-grid">
 
-<script>
-  // ── Supabase config ─────────────────────────────────────────────
-  // Replace these two values with YOUR project URL and anon key
-  const SUPABASE_URL  = "https://yamawzwslinpkkpohksq.supabase.co";
-  const SUPABASE_ANON = "sb_publishable_JRPsxAFt5b1Qv9SgVgsqtg_ManWyRKg";
- 
-  // ── Form submission handler ──────────────────────────────────────
-  document.getElementById("contact-form")
-    .addEventListener("submit", async function (event) {
- 
-      // Prevent the default browser form submission (page reload)
-      event.preventDefault();
- 
-      // Grab the form values
-      const name    = document.getElementById("name").value.trim();
-      const email   = document.getElementById("email").value.trim();
-      const message = document.getElementById("message").value.trim();
-      const btn     = document.getElementById("submit-btn");
-      const status  = document.getElementById("form-status");
- 
-      // Disable the button while we send (prevents double-submit)
-      btn.disabled = true;
-      btn.textContent = "Sending...";
-      status.textContent = "";
- 
-      try {
-        // Call the Supabase REST API to insert a row
-        const response = await fetch(
-          `${SUPABASE_URL}/rest/v1/contact_messages`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-              "apikey":        SUPABASE_ANON,
-              "Authorization": `Bearer ${SUPABASE_ANON}`,
-              "Prefer":        "return=minimal"
-            },
-            body: JSON.stringify({ name, email, message })
-          }
-        );
- 
-        if (response.ok) {
-          // Success — show confirmation and reset the form
-          status.textContent = "✓ Message sent! I will be in touch soon.";
-          status.style.color = "#1A7A4A";
-          event.target.reset();
-        } else {
-          // Supabase returned an error — log it for debugging
-          const err = await response.json();
-          console.error("Supabase error:", err);
-          status.textContent = "Something went wrong. Please try again.";
-          status.style.color = "#DC2626";
-        }
- 
-      } catch (networkError) {
-        // Network/connectivity problem
-        console.error("Network error:", networkError);
-        status.textContent = "Could not connect. Check your internet connection.";
-        status.style.color = "#DC2626";
-      } finally {
-        // Always re-enable the button
-        btn.disabled = false;
-        btn.textContent = "Send Message";
-      }
-    });
-</script>
+        <article class="project-card">
+          <div class="project-meta">Web Development · 2026</div>
+          <h3>Portfolio Website</h3>
+          <p>
+            My first GitHub Pages portfolio website built with HTML and CSS.
+          </p>
+          <div class="project-links">
+            <a href="https://qq490138867-zane.github.io/github.io/" target="_blank">Live Site</a>
+            <a href="https://github.com/qq490138867-zane/github.io" target="_blank">GitHub</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-meta">Coming Soon</div>
+          <h3>Future Project</h3>
+          <p>
+            More coursework, portfolio tasks, and web development projects will be added here soon.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Get In Touch</h2>
+      <div class="contact-box">
+        <p><strong>Name:</strong> Qian Cao</p>
+        <p><strong>Email:</strong> qq490138867@gmail.com</p>
+        <p>
+          You can contact me for collaboration, student projects, or to learn more about my work.
+        </p>
+        <a class="button" href="mailto:qq490138867@gmail.com">Send Email</a>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2026 Qian Cao. Built with HTML, CSS and GitHub Pages.</p>
+    </footer>
+
+  </div>
+</body>
+</html>
