@@ -4,7 +4,6 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Qian Cao | Portfolio</title>
@@ -21,25 +20,15 @@
 <h1>Qian Cao</h1>
 
 <nav>
-
 <ul>
-
 <li><a href="#hero">Home</a></li>
-
 <li><a href="#about">About</a></li>
-
 <li><a href="#projects">Projects</a></li>
-
 <li><a href="#skills">Skills</a></li>
-
 <li><a href="#blog">Blog</a></li>
-
 <li><a href="#contact">Contact</a></li>
-
 <li><a href="maths.html">Tools</a></li>
-
 </ul>
-
 </nav>
 
 </header>
@@ -52,9 +41,7 @@
 
 <h2>Hello, I'm Qian Cao</h2>
 
-<p>
-<strong>Computer Science student</strong> at the University of York.
-</p>
+<p><strong>Computer Science student</strong> at the University of York.</p>
 
 <p>
 Interested in web development, databases, and software systems.
@@ -137,13 +124,9 @@ Programming exercises and projects from my university coursework.
 <ul>
 
 <li>HTML</li>
-
 <li>CSS</li>
-
 <li>Java</li>
-
 <li>Git & GitHub</li>
-
 <li>SQL & Databases</li>
 
 </ul>
@@ -163,11 +146,8 @@ I write notes while learning programming and computer science concepts.
 <ul>
 
 <li>HTML and CSS basics</li>
-
 <li>Database design</li>
-
 <li>Java programming</li>
-
 <li>Mathematics for computing</li>
 
 </ul>
@@ -216,10 +196,31 @@ Based in York, United Kingdom.
 
 </div>
 
+
+<h3>Send me a message</h3>
+
+<form id="contact-form">
+
+<label>Name</label><br>
+<input type="text" id="name" required><br><br>
+
+<label>Email</label><br>
+<input type="email" id="email" required><br><br>
+
+<label>Message</label><br>
+<textarea id="message" rows="4" required></textarea><br><br>
+
+<button id="submit-btn" type="submit">Send Message</button>
+
+<p id="form-status"></p>
+
+</form>
+
 </section>
 
 
 </main>
+
 
 
 <footer>
@@ -229,6 +230,77 @@ Based in York, United Kingdom.
 </p>
 
 </footer>
+
+
+<script>
+
+/* ───── Supabase config ───── */
+
+const SUPABASE_URL = "https://yamawzwslinpkkpohksq.supabase.co";
+
+const SUPABASE_ANON = "sb_publishable_JRPsxAFt5b1Qv9SgVgsqtg_ManWyRKg";
+
+
+/* ───── Form handler ───── */
+
+document.getElementById("contact-form")
+.addEventListener("submit", async function (event) {
+
+event.preventDefault();
+
+const name = document.getElementById("name").value.trim();
+const email = document.getElementById("email").value.trim();
+const message = document.getElementById("message").value.trim();
+
+const btn = document.getElementById("submit-btn");
+const status = document.getElementById("form-status");
+
+btn.disabled = true;
+btn.textContent = "Sending...";
+status.textContent = "";
+
+try {
+
+const response = await fetch(
+`${SUPABASE_URL}/rest/v1/contact_messages`,
+{
+method: "POST",
+headers: {
+"Content-Type": "application/json",
+"apikey": SUPABASE_ANON,
+"Authorization": `Bearer ${SUPABASE_ANON}`,
+"Prefer": "return=minimal"
+},
+body: JSON.stringify({ name, email, message })
+}
+);
+
+if (response.ok) {
+
+status.textContent = "✓ Message sent! I will be in touch soon.";
+status.style.color = "#1A7A4A";
+event.target.reset();
+
+} else {
+
+status.textContent = "Something went wrong. Please try again.";
+status.style.color = "#DC2626";
+
+}
+
+} catch (error) {
+
+status.textContent = "Network error. Please try again.";
+status.style.color = "#DC2626";
+
+}
+
+btn.disabled = false;
+btn.textContent = "Send Message";
+
+});
+
+</script>
 
 
 </body>
